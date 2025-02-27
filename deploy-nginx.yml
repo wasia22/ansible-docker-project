@@ -1,0 +1,11 @@
+- name: Deploy Nginx using Docker
+  hosts: local
+  become: yes
+  tasks:
+    - name: Run Nginx container
+      docker_container:
+        name: nginx_ansible
+        image: nginx
+        state: started
+        ports:
+          - "8080:80"
